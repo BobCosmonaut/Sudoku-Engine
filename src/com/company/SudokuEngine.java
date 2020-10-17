@@ -1,4 +1,8 @@
 package com.company;
+/*
+ * Created by Caleb Hefty
+ */
+
 
 import java.util.Scanner;
 
@@ -9,7 +13,7 @@ public class SudokuEngine {
         int[][] numbers = new int[9][9];
 
         // Enter Values...
-        System.out.println("Enter Values, substituting blank spaces with zeros:\n");
+        System.out.println("Enter values line by line, substituting blank spaces with zeros:\n");
         for (int i = 0; i < 9; i++) {
             String data = scanner.nextLine();
             for (int j = 0; j < data.length(); j++) {
@@ -48,31 +52,14 @@ public class SudokuEngine {
                     }
                 }
             }
-
             //Use other algorithm
-
             if (!changed) {
-                /*
-            for each number
-                is the number in this box
-                otherwise
-                at each open square
-                does the column not contain this number
-                    does the row not contain this number
-                        has no other square passed the tests
-                            record this square
-                            mark as passing tests
-                change square
-
-     */
                 for (int num = 1; num < 10; num++) {
                     for (int x = 0; x < 3; x++) {
                         for (int y = 0; y < 3; y++) {
                             if (!searchBox(numbers, x * 3, y * 3, num)) {
-
                                 boolean foundCandidate = false;
                                 int candidateX = -1, candidateY = -1;
-
                                 for (int xSub = 0; xSub < 3; xSub++) {
                                     for (int ySub = 0; ySub < 3; ySub++) {
 
